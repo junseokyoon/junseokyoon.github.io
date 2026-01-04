@@ -1,24 +1,21 @@
-name: Generate Metadata and Deploy
+name: Generate Metadata
 
 on:
   push:
     branches: [ master ]
-    paths:
-      - '_wiki/**'
-      - '_posts/**'
-      - '_config.yml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v3
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
     
-    - name: Setup Node.js
+    - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: '18'
@@ -34,22 +31,9 @@ jobs:
     - name: Generate metadata
       run: node generateData.js
     
-    - name: Check for changes
-      id: verify_diff
+    - name: Commit and push
       run: |
-        git diff --quiet _data/metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
-    
-    - name: Commit metadata
-      if: steps.verify_diff.outputs.changed == 'true'
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
         git add _data/metadata.json
-        git commit -m "Auto-generate metadata [skip ci]"
-    
-    - name: Push changes
-      if: steps.verify_diff.outputs.changed == 'true'
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate metadata [skip ci]" && git push)
