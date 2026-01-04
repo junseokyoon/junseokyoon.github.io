@@ -1,9 +1,9 @@
 ---
 layout: wiki
-title: Untitled
+title: test-post
 summary:
 date: 2026-01-05 00:20:13 +0900
-updated: 2026-01-05 00:26:43 +0900
+updated: 2026-01-05 00:22:32 +0900
 tag:
 toc: true
 public: true
