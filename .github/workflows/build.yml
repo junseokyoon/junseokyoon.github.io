@@ -1,0 +1,55 @@
+name: Generate Metadata and Deploy
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '_wiki/**'
+      - '_posts/**'
+      - '_config.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm install
+        else
+          npm install yamljs
+        fi
+    
+    - name: Generate metadata
+      run: node generateData.js
+    
+    - name: Check for changes
+      id: verify_diff
+      run: |
+        git diff --quiet _data/metadata.json || echo "changed=true" >> $GITHUB_OUTPUT
+    
+    - name: Commit metadata
+      if: steps.verify_diff.outputs.changed == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add _data/metadata.json
+        git commit -m "Auto-generate metadata [skip ci]"
+    
+    - name: Push changes
+      if: steps.verify_diff.outputs.changed == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master
