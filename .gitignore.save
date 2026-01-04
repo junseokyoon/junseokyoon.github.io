@@ -1,0 +1,30 @@
+_site
+.sass-cache
+.jekyll-metadata
+tags
+*.swp
+Gemfile.lock
+/node_modules
+package-lock.json
+.jekyll-cache/
+.DS_Store
+.localhost.log
+.localhost.pid
+.quickfix-bookmark
+# Obsidian 설정 (상위 폴더의 .obsidian 제외)
+../.obsidian/
+../../.obsidian/
+
+# Mac 파일
+.DS_Store
+../.DS_Store
+
+# Obsidian workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# Enveloppe plugin data
+.obsidian/plugins/obsidian-enveloppe/data.json
+
+# 개인 노트 폴더들 (brewingco
