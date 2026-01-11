@@ -2,14 +2,13 @@ on:
   push:
     branches: [ master ]  # main → master
 
-
-- name: Setup Node.js
+name: Setup Node.js
   uses: actions/setup-node@v3
   with:
     node-version: '16'
 
-- name: Install dependencies
+name: Install dependencies
   run: npm install
 
-- name: Generate metadata
+name: Generate metadata
   run: node generateData.js
