@@ -1,9 +1,8 @@
-# .github/workflows/wiki-build.yml
 on:
   push:
     branches: [ master ]  # main → master
 
-# 추가할 단계 (Jekyll 빌드 전)
+
 - name: Setup Node.js
   uses: actions/setup-node@v3
   with:
