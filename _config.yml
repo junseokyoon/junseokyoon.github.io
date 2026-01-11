@@ -1,25 +1,41 @@
-# 기존 설정 (수정하지 마세요)
-title: Your awesome title
-email: your-email@example.com
-description: >-
-  Write an awesome description for your new site here.
-baseurl: ""
+# Site settings
+title: 프레드리크의 블로그
 url: "https://junseokyoon.github.io"
-theme: minima
+baseurl: ""
+description: >
+    개인 위키 블로그
+
+# My information
+email: your-email@example.com
+author: 프레드리크
+github_username: junseokyoon
+
+# Build settings
 plugins:
+  - jekyll-paginate
+  - jekyll-gist
   - jekyll-feed
 
-# ============================================
-# 위키 설정 추가 (여기부터 추가하세요)
-# ============================================
+permalink: /blog/:year/:month/:day/:title/
 
-# 위키 컬렉션 설정
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+paginate: 10
+paginator_path: "/blog"
+paginate_path: "/blog/page:num/"
+
+# Collections
 collections:
   wiki:
     output: true
     permalink: /wiki/:path/
 
-# 위키 기본값 설정
+# Defaults
 defaults:
   - scope:
       path: ""
@@ -27,16 +43,14 @@ defaults:
     values:
       layout: wiki
       type: wiki
-      comment: true
 
-# 마크다운 처리 설정
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  hard_wrap: false
+blame: "https://github.com/junseokyoon/junseokyoon.github.io/blame/master/_wiki"
+edit: "https://github.com/junseokyoon/junseokyoon.github.io/edit/master/_wiki"
+issue: "https://github.com/junseokyoon/junseokyoon.github.io/issues/new"
 
-# 제외할 파일들
+timezone: "Asia/Seoul"
+
+# Exclude files from Jekyll build
 exclude:
   - scripts/
   - Gemfile
