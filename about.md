@@ -4,6 +4,8 @@ title:
 permalink: /about/
 comment: false
 latex: true
+created: 2026-01-11 23:06:07 +0900
+updated: 2026-01-11 23:06:07 +0900
 ---
 * TOC
 {:toc}

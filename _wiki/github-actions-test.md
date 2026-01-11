@@ -3,7 +3,7 @@ layout: wiki
 title: GitHub Actions 테스트
 summary: 메타데이터 자동 생성 테스트
 date: 2026-01-05 00:50:12 +0900
-updated: 2026-01-11 23:06:08 +0900
+updated: 2026-01-05 00:53:34 +0900
 tag: test github-actions
 toc: true
 public: true
