@@ -1,5 +1,5 @@
 # Site settings
-title: 프레드리크의 블로그
+title: brewingcontents
 url: "https://junseokyoon.github.io"
 baseurl: ""
 description: >
@@ -7,7 +7,7 @@ description: >
 
 # My information
 email: your-email@example.com
-author: 프레드리크
+author: brewingcontents
 github_username: junseokyoon
 
 # Build settings
