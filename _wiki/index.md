@@ -3,7 +3,7 @@ layout: default
 title: Wiki
 permalink: /wiki/
 created: 2026-01-11 22:47:35 +0900
-updated: 2026-01-11 23:14:19 +0900
+updated: 2026-01-11 23:16:32 +0900
 ---
 
 <div class="wiki-index">
@@ -30,7 +30,7 @@ updated: 2026-01-11 23:14:19 +0900
 
   <!-- 최근 수정 문서 -->
   <section class="wiki-recent">
-    <h2>최근 수정한 문서</h2>
+    <h2>최근 수정</h2>
     <ul class="wiki-list">
       {% assign sorted_wiki = site.wiki | sort: 'updated' | reverse %}
       {% for doc in sorted_wiki limit:10 %}
