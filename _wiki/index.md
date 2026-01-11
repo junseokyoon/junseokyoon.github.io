@@ -2,8 +2,8 @@
 layout: default
 title: Wiki
 permalink: /wiki/
-created: 2026-01-11 23:06:07 +0900
-updated: 2026-01-11 23:06:07 +0900
+created: 2026-01-11 22:47:35 +0900
+updated: 2026-01-11 22:47:35 +0900
 ---
 
 <div class="wiki-index">

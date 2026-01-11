@@ -1,0 +1,228 @@
+---
+layout: default
+---
+
+<article class="wiki-content">
+  <header class="wiki-header">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="wiki-metadata">
+      {% if page.date %}
+      <span class="wiki-date">
+        작성: {{ page.date | date: "%Y.%m.%d" }}
+      </span>
+      {% endif %}
+      
+      {% if page.updated %}
+      <span class="wiki-updated">
+        수정: {{ page.updated | date: "%Y.%m.%d" }}
+      </span>
+      {% endif %}
+      
+      {% if page.tags %}
+      <div class="wiki-tags">
+        {% for tag in page.tags %}
+        <a href="/wiki/tag-{{ tag }}/" class="wiki-tag">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="wiki-body">
+    {{ content }}
+  </div>
+
+  <!-- 백링크 섹션 -->
+  {% assign backlinks = site.wiki | where_exp: "item", "item.content contains page.title or item.content contains page.path" %}
+  {% if backlinks.size > 0 %}
+  <footer class="wiki-backlinks">
+    <h2>이 문서를 참조하는 문서</h2>
+    <ul>
+      {% for link in backlinks %}
+        {% if link.url != page.url %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </footer>
+  {% endif %}
+
+  <!-- 네비게이션 -->
+  <nav class="wiki-nav">
+    <a href="/wiki/" class="wiki-nav-link">← 위키 홈</a>
+    {% if page.parent %}
+    <a href="/wiki/{{ page.parent }}/" class="wiki-nav-link">↑ {{ page.parent }}</a>
+    {% endif %}
+  </nav>
+</article>
+
+<style>
+.wiki-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wiki-header {
+  border-bottom: 2px solid #e1e4e8;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.wiki-header h1 {
+  margin-bottom: 10px;
+}
+
+.wiki-metadata {
+  font-size: 0.9em;
+  color: #586069;
+}
+
+.wiki-date, .wiki-updated {
+  margin-right: 15px;
+}
+
+.wiki-tags {
+  margin-top: 10px;
+}
+
+.wiki-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-right: 5px;
+  background-color: #f1f8ff;
+  border-radius: 3px;
+  color: #0366d6;
+  text-decoration: none;
+  font-size: 0.85em;
+}
+
+.wiki-tag:hover {
+  background-color: #def;
+}
+
+.wiki-body {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.wiki-body h2 {
+  margin-top: 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eaecef;
+}
+
+.wiki-body h3 {
+  margin-top: 20px;
+}
+
+.wiki-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.wiki-body a:hover {
+  text-decoration: underline;
+}
+
+.wiki-body code {
+  padding: 2px 6px;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.wiki-body pre {
+  background-color: #f6f8fa;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.wiki-backlinks {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e4e8;
+}
+
+.wiki-backlinks h2 {
+  font-size: 1.2em;
+  color: #586069;
+  margin-bottom: 15px;
+}
+
+.wiki-backlinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.wiki-backlinks li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.wiki-backlinks li:before {
+  content: "←";
+  position: absolute;
+  left: 0;
+  color: #0366d6;
+}
+
+.wiki-nav {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e1e4e8;
+  display: flex;
+  gap: 15px;
+}
+
+.wiki-nav-link {
+  color: #0366d6;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.wiki-nav-link:hover {
+  text-decoration: underline;
+}
+
+/* 다크모드 지원 (선택사항) */
+@media (prefers-color-scheme: dark) {
+  .wiki-header {
+    border-bottom-color: #30363d;
+  }
+  
+  .wiki-metadata {
+    color: #8b949e;
+  }
+  
+  .wiki-tag {
+    background-color: #161b22;
+    color: #58a6ff;
+  }
+  
+  .wiki-body code {
+    background-color: #161b22;
+  }
+  
+  .wiki-body pre {
+    background-color: #161b22;
+  }
+  
+  .wiki-backlinks {
+    border-top-color: #30363d;
+  }
+  
+  .wiki-backlinks h2 {
+    color: #8b949e;
+  }
+  
+  .wiki-nav {
+    border-top-color: #30363d;
+  }
+}
+</style>
