@@ -18,6 +18,18 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# 추가할 단계 (Jekyll 빌드 전)
+- name: Setup Node.js
+  uses: actions/setup-node@v3
+  with:
+    node-version: '16'
+
+- name: Install dependencies
+  run: npm install
+
+- name: Generate metadata
+  run: node generateData.js
+
 jobs:
   build:
     runs-on: ubuntu-latest
