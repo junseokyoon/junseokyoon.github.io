@@ -7,9 +7,9 @@ tag: test
 resource: 2A/73EE4A-1FD5-4EC0-8FA1-73F624DF978F
 toc: true
 comment: true
-public: true
+public: false
 created: 2026-01-05 00:00:48 +0900
-updated: 2026-01-11 23:14:49 +0900
+updated: 2026-01-05 00:00:49 +0900
 ---
 * TOC
 {:toc}
@@ -17,5 +17,3 @@ updated: 2026-01-11 23:14:49 +0900
 # subject
 
 ## test
-
-본문 테스트
