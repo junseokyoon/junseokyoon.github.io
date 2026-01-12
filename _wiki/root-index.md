@@ -1,11 +1,13 @@
 ---
-layout  : wikiindex
-title   : wiki
-toc     : true
-public  : true
-comment : false
-updated : 2022-12-07 23:01:03 +0900
+layout: wikiindex
+title: wiki
+toc: true
+public: true
+parent:
+comment: false
+updated: 2026-01-13 00:42:14 +0900
 regenerate: true
+created: 2026-01-05 00:00:48 +0900
 ---
 
 ## [[how-to]]
