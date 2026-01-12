@@ -3,7 +3,7 @@ layout: wiki
 title: GitHub Actions 테스트
 summary: 메타데이터 자동 생성 테스트
 date: 2026-01-05 00:50:12 +0900
-updated: 2026-01-12 23:49:22 +0900
+updated: 2026-01-13 00:24:07 +0900
 tags:
   - test
   - github-actions
@@ -11,7 +11,6 @@ toc: true
 public: true
 parent: index
 latex: false
-share: true
 created: 2026-01-05 00:50:12 +0900
 ---
 * TOC 
@@ -19,6 +18,7 @@ created: 2026-01-05 00:50:12 +0900
 
 ## GitHub Actions 테스트 
 이 글은 메타데이터 자동 생성을 테스트하기 위한 글입니다. 
+
 ### 확인 사항 
 1. Enveloppe로 발행 
 2. GitHub Actions 자동 실행

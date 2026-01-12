@@ -10,7 +10,14 @@ adsense: false
         <li>
             <div>
                 <a class="post-link" href="{{ doc.url }}">
-                    <div class="post-meta">{{ doc.updated | date: "%Y.%m.%d" }} - {{ doc.title }}</div>
+                    <div class="post-meta">
+                        {% if doc.updated %}
+                        {{ doc.updated | date: "%Y.%m.%d" }} - 
+                        {% elsif doc.date %}
+                        {{ doc.date | date: "%Y.%m.%d" }} - 
+                        {% endif %}
+                        {{ doc.title }}
+                    </div>
                     <div class="post-excerpt">{{ doc.summary }}</div>
         {% if doc.tag or doc.tags %}
                     <ul class="tag-list">

@@ -47,7 +47,7 @@ regenerate: true
                 <a class="post-link" href="{{ doc.url | prepend: site.baseurl }}">
                     <div class="post-meta">
                         {% if doc.updated %}
-                        {{ doc.updated | date: "%Y.%m.%d" }}
+                        {{ doc.updated | date: "%Y.%m.%d" }} -
                         {% elsif doc.date %}
                         {{ doc.date | date: "%Y.%m.%d" }} -
                         {% endif %}
