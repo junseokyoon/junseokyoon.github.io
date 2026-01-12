@@ -41,7 +41,7 @@ regenerate: true
     <ul class="post-list">
 {% assign documents = site.wiki | sort: 'updated' | reverse %}
 {% for doc in documents limit: 30 %}
-    {% if doc.public != false and doc.title != 'wiki'%}  ← public == true → != false
+    {% if doc.public != false and doc.title != 'wiki'%}
         <li>
             <div class="post-item">
                 <a class="post-link" href="{{ doc.url | prepend: site.baseurl }}">
@@ -54,11 +54,14 @@ regenerate: true
                     {% if doc.tag or doc.tags %}          ← 태그 존재 여부 확인
                     <ul class="tag-list">
                         {% if doc.tag %}                   ← 단수형 처리
-                        <li class="post-tag">{{ doc.tag }}</li>
+                        {% assign tag_items = doc.tag | split: ' ' %}
+                        {% for tag_item in tag_items %}
+                        <li class="post-tag">{{ tag_item }}</li>
+                        {% endfor %}
                         {% endif %}
                         {% if doc.tags %}                  ← 복수형 처리
-                        {% for tag in doc.tags %}
-                        <li class="post-tag">{{ tag }}</li>
+                        {% for tag_item in doc.tags %}
+                        <li class="post-tag">{{ tag_item }}</li>
                         {% endfor %}
                         {% endif %}
                     </ul>
