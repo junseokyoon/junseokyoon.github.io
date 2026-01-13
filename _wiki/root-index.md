@@ -12,8 +12,8 @@ created: 2026-01-05 00:00:48 +0900
 {:toc}
 
 ## 링크 구조 확인
-* [how-to]
-* [mathjax-latex]
+* how-to
+* mathjax-latex
 
 
 ---
