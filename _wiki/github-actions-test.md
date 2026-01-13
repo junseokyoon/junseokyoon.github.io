@@ -4,7 +4,7 @@ title: GitHub Actions 테스트
 summary: 메타데이터 자동 생성 테스트
 date: 2026-01-05 00:50:12 +0900
 created: 2026-01-05 00:50:12 +0900
-updated: 2026-01-13 23:31:12 +0900
+updated: 2026-01-13 23:59:54 +0900
 tags:
   - test
   - github-actions
@@ -13,7 +13,6 @@ public: true
 parent: index
 latex: false
 ---
-
 * TOC 
 {:toc}
 

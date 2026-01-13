@@ -1,19 +1,17 @@
 ---
 layout: wiki
-title: Untitled
+title: test-post
 summary:
 date: 2026-01-05 00:20:13 +0900
-created: 2026-01-05 00:20:12
-updated: 2026-01-13 23:30:20 +0900
+created: 2026-01-05 00:20:12 +0900
+updated: 2026-01-13 23:59:31 +0900
 tags:
   - uncategorized
 toc: true
 public: true
 parent: daily
 latex: false
-share: true
 ---
-
 * TOC
 {:toc}
 

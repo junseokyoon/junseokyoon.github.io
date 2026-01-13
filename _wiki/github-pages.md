@@ -6,8 +6,12 @@ tags:
   - web
   - hosting
 created: 1984-01-24 17:00:00 +0900
-updated: 2026-01-13 09:09:20 +0900
+updated: 2026-01-14 00:00:49 +0900
+toc: true
+public: true
 ---
+* TOC 
+{:toc}
 
 ## GitHub Pages
 
