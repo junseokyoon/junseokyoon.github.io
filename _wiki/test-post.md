@@ -9,7 +9,7 @@ tags:
   - uncategorized
 toc: true
 public: true
-parent: daily
+parent: index
 latex: false
 ---
 * TOC
