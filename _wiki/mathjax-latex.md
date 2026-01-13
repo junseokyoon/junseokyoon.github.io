@@ -3,14 +3,13 @@ layout: wiki
 title: MathJax로 LaTeX 사용하기
 summary:
 date: 2017-11-28 22:56:29 +0900
-updated: 2026-01-12 23:49:22 +0900
+updated: 2026-01-13 09:12:19 +0900
 tags:
   - latex
 resource: 7C/C3DE70-9283-43F3-BF44-0CD01F2D08B6
 toc: true
 public: true
-parent:
-  - - how-to
+parent: how-to
 latex: true
 created: 2026-01-12 23:49:22 +0900
 ---
