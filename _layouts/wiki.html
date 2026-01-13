@@ -3,22 +3,40 @@ layout: default
 ---
 
 <article class="wiki-content">
-  <nav class="wiki-breadcrumb">
-      <a href="/wiki/">ROOT</a>
-      {% if page.parent %}
-      <span class="breadcrumb-separator">/</span>
-      <a href="/wiki/{{ page.parent }}/">{{ page.parent }}</a>
-      {% endif %}
-  </nav>
   <header class="wiki-header">
     <h1>{{ page.title }}</h1>
     
     <div class="wiki-metadata">
-      {% if page.date %}
-      <span class="wiki-date">
-        작성: {{ page.date | date: "%Y.%m.%d" }}
-      </span>
-      {% endif %}
+  {% if page.created or page.date %}
+  <p>
+    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/_wiki/{{ page.path | remove: '_wiki/' }}">
+      created: {{ page.created | default: page.date | date: "%Y.%m.%d" }}
+    </a>
+  </p>
+  {% endif %}
+  
+  {% if page.updated %}
+  <p>
+    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/_wiki/{{ page.path | remove: '_wiki/' }}">
+      updated: {{ page.updated | date: "%Y.%m.%d" }}
+    </a>
+  </p>
+  {% endif %}
+  
+  <p>
+    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/blame/master/_wiki/{{ page.path | remove: '_wiki/' }}">
+      blame 보기
+    </a>
+    / 
+    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/edit/master/_wiki/{{ page.path | remove: '_wiki/' }}">
+      편집하기
+    </a>
+    / 
+    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/issues/new?title={{ page.title | url_encode }}&body=의견을%20남겨주세요">
+      의견 남기기
+    </a>
+  </p>
+</div>
       
       {% if page.updated %}
       <span class="wiki-updated">
