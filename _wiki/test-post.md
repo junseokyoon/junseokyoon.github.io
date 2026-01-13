@@ -3,7 +3,8 @@ layout: wiki
 title: Untitled
 summary:
 date: 2026-01-05 00:20:13 +0900
-updated: 2026-01-12 23:49:22 +0900
+created: 2026-01-05 00:20:12
+updated: 2026-01-13 23:30:20 +0900
 tags:
   - uncategorized
 toc: true
@@ -11,13 +12,12 @@ public: true
 parent: daily
 latex: false
 share: true
-created: 2026-01-05 00:20:12
 ---
 
 * TOC
 {:toc}
 
-## ## 개요
+## 개요
 
 Obsidian에서 작성하는 첫 번째 블로그 글입니다.
 
