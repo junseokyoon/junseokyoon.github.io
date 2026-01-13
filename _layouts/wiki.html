@@ -4,111 +4,102 @@ layout: default
 
 <article class="wiki-content">
   <header class="wiki-header">
-    <h1>{{ page.title }}</h1>
+    <!-- H1 제목 (John Grib처럼 링크) -->
+    <h1>
+      <a href="{{ page.url }}">{{ page.title }}</a>
+    </h1>
     
-    <div class="wiki-metadata">
-  {% if page.created or page.date %}
-  <p>
-    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/_wiki/{{ page.path | remove: '_wiki/' }}">
-      created: {{ page.created | default: page.date | date: "%Y.%m.%d" }}
-    </a>
-  </p>
-  {% endif %}
-  
-  {% if page.updated %}
-  <p>
-    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/_wiki/{{ page.path | remove: '_wiki/' }}">
-      updated: {{ page.updated | date: "%Y.%m.%d" }}
-    </a>
-  </p>
-  {% endif %}
-  
-  <p>
-    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/blame/master/_wiki/{{ page.path | remove: '_wiki/' }}">
-      blame 보기
-    </a>
-    / 
-    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/edit/master/_wiki/{{ page.path | remove: '_wiki/' }}">
-      편집하기
-    </a>
-    / 
-    <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/issues/new?title={{ page.title | url_encode }}&body=의견을%20남겨주세요">
-      의견 남기기
-    </a>
-  </p>
-</div>
-      
-      {% if page.updated %}
-      <span class="wiki-updated">
-        수정: {{ page.updated | date: "%Y.%m.%d" }}
-      </span>
-      {% endif %}
-      
-      {% if page.tags %}
-      <div class="wiki-tags">
-        {% for tag in page.tags %}
-        <a href="/wiki/tag-{{ tag }}/" class="wiki-tag">#{{ tag }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
+    <!-- 메타데이터: created -->
+    {% if page.created or page.date %}
+    <p>
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/{{ page.path }}">
+        created: {{ page.created | default: page.date | date: "%Y.%m.%d" }}
+      </a>
+    </p>
+    {% endif %}
+    
+    <!-- 메타데이터: updated -->
+    {% if page.updated %}
+    <p>
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/commits/master/{{ page.path }}">
+        updated: {{ page.updated | date: "%Y.%m.%d" }}
+      </a>
+    </p>
+    {% endif %}
+    
+    <!-- GitHub 링크 3개 -->
+    <p>
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/blame/master/{{ page.path }}">
+        blame 보기
+      </a>
+      / 
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/edit/master/{{ page.path }}">
+        편집하기
+      </a>
+      / 
+      <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/issues/new?title={{ page.title | url_encode }}&body=의견을%20남겨주세요">
+        의견 남기기
+      </a>
+    </p>
+    
+    <!-- 선택: 태그 표시 -->
+    {% if page.tags %}
+    <div class="wiki-tags">
+      {% for tag in page.tags %}
+      <a href="/tag/#{{ tag }}" class="wiki-tag">#{{ tag }}</a>
+      {% endfor %}
     </div>
+    {% endif %}
   </header>
 
+  <!-- 본문 -->
   <div class="wiki-body">
     {{ content }}
   </div>
 </article>
 
 <style>
-  .wiki-breadcrumb {
-  font-size: 0.85em;
-  color: #586069;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e1e4e8;
-}
-
-.wiki-breadcrumb a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-.wiki-breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.breadcrumb-separator {
-  margin: 0 8px;
-  color: #586069;
-}
-
 .wiki-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* John Grib 헤더 스타일 */
 .wiki-header {
-  border-bottom: 2px solid #e1e4e8;
-  padding-bottom: 20px;
   margin-bottom: 30px;
 }
 
 .wiki-header h1 {
-  margin-bottom: 10px;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
 }
 
-.wiki-metadata {
+.wiki-header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 메타데이터 라인 (created, updated, GitHub 링크) */
+.wiki-header p {
+  margin: 0.3em 0;
   font-size: 0.9em;
   color: #586069;
 }
 
-.wiki-date, .wiki-updated {
-  margin-right: 15px;
+.wiki-header p a {
+  color: #0366d6;
+  text-decoration: none;
 }
 
+.wiki-header p a:hover {
+  text-decoration: underline;
+}
+
+/* 태그 (선택) */
 .wiki-tags {
-  margin-top: 10px;
+  margin-top: 1em;
 }
 
 .wiki-tag {
@@ -126,9 +117,11 @@ layout: default
   background-color: #def;
 }
 
+/* 본문 */
 .wiki-body {
   line-height: 1.6;
   font-size: 16px;
+  margin-top: 30px;
 }
 
 .wiki-body h2 {
@@ -164,14 +157,37 @@ layout: default
   overflow-x: auto;
 }
 
-/* 다크모드 지원 (선택사항) */
+.wiki-body pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.wiki-body ul, .wiki-body ol {
+  margin: 15px 0;
+  padding-left: 30px;
+}
+
+.wiki-body li {
+  margin: 5px 0;
+}
+
+/* TOC 스타일 */
+.wiki-body > ul:first-child {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 15px 20px 15px 35px;
+  margin: 20px 0;
+}
+
+/* 다크모드 */
 @media (prefers-color-scheme: dark) {
-  .wiki-header {
-    border-bottom-color: #30363d;
+  .wiki-header p {
+    color: #8b949e;
   }
   
-  .wiki-metadata {
-    color: #8b949e;
+  .wiki-header p a {
+    color: #58a6ff;
   }
   
   .wiki-tag {
@@ -186,6 +202,10 @@ layout: default
   .wiki-body pre {
     background-color: #161b22;
   }
-
+  
+  .wiki-body > ul:first-child {
+    background-color: #161b22;
+    border-color: #30363d;
+  }
 }
 </style>
