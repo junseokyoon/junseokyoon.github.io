@@ -1,11 +1,11 @@
 ---
-layout: wikiindex
+layout: wiki
 title: wiki
 toc: true
 public: true
 parent:
 comment: false
-updated: 2026-01-13 09:14:48 +0900
+updated: 2026-01-13 23:11:22 +0900
 regenerate: true
 created: 2026-01-05 00:00:48 +0900
 ---
