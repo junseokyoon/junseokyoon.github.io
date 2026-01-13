@@ -5,8 +5,8 @@ date: 2025-01-11
 tags:
   - web
   - hosting
-created: 1984-01-24 17:00:00 +0900
-updated: 2026-01-14 00:00:49 +0900
+created: 2024-01-24 17:00:00 +0900
+updated: 2026-01-14 00:08:03 +0900
 toc: true
 public: true
 ---
