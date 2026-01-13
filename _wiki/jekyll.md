@@ -7,6 +7,7 @@ tags:
   - static-site
 created: 1984-01-24 17:00:00 +0900
 updated: 2026-01-13 09:09:31 +0900
+parent: index
 ---
 
 ## Jekyll
