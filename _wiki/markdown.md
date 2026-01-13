@@ -9,6 +9,7 @@ created: 2026-01-11 22:59:41 +0900
 updated: 2026-01-14 00:02:04 +0900
 toc: true
 public: true
+parent: index
 ---
 * TOC 
 {:toc}
