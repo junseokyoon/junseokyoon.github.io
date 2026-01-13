@@ -54,21 +54,6 @@ regenerate: true
                         {{ doc.title }}
                     </div>
                     <div class="post-excerpt">{{ doc.summary }}</div>
-                    {% if doc.tag or doc.tags %}
-                    <ul class="tag-list">
-                        {% if doc.tag %}
-                        {% assign tag_items = doc.tag | split: ' ' %}
-                        {% for tag_item in tag_items %}
-                        <li class="post-tag">{{ tag_item }}</li>
-                        {% endfor %}
-                        {% endif %}
-                        {% if doc.tags %}
-                        {% for tag_item in doc.tags %}
-                        <li class="post-tag">{{ tag_item }}</li>
-                        {% endfor %}
-                        {% endif %}
-                    </ul>
-                    {% endif %}
                 </a>
             </div>
         </li>
