@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: wiki
+title: root-index
 toc: true
 public: true
 parent: index
